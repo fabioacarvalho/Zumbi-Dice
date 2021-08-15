@@ -46,35 +46,41 @@ jogadores = []
 if players >= 2:
     #Início do jogo:
     StartJogo = True
-    
-    #Adicionando jogadores:
-    i = 1
-    while (i < players + 1):
-        pessoas = dict({'jogador': i, 'cerebros': 0})
-        jogadores.append(pessoas)
-        i += 1
 
-    #Escolhas:
-    numJogador = int(input("Qual jogador vai primeiro [1, 2, 3...]: "))
-    jogar = int(input("[1] - Jogar dados ou [2] - Finalizar Turno? "))
+    while (StartJogo == True):
+        #Adicionando jogadores:
+        i = 1
+        while (i < players + 1):
+            pessoas = dict({'jogador': i, 'cerebros': 0})
+            jogadores.append(pessoas)
+            i += 1
 
-    if jogar == 1:
+        #Escolhas:
+        numJogador = int(input("Qual jogador vai jogar os dados? [1, 2...]: "))
+        jogar = int(input("[1] - Jogar dados ou [2] - Finalizar Turno? "))
+
+        if jogar == 1:
+            
+            valores = jogarDados
+            if valores[0:2] == "TIRO":
+                print('Você foi atingido por 3 tiros e perdeu o turno!')
+            if valores[0] == "CEREBRO":
+                jogadores[numJogador]['cerebros'] += 1
+            if valores[1] == "CEREBRO":
+                jogadores[numJogador]['cerebros'] += 1
+            if valores[2] == "CEREBRO":
+                jogadores[numJogador]['cerebros'] += 1
+
+            #Pontuação do Jogo:
+            
+            print(valores)
+            print(jogadores[numJogador]['cerebros'])
+
+        elif jogar == 2:
+            print("Seu turno finalizou, proximo jogador")
+            StartJogo = False
         
-        valores = jogarDados
-        if valores[0:2] == "TIRO":
-            print('Você foi atingido por 3 tiros e perdeu o turno!')
-        if valores[0] == "CEREBRO":
-            jogadores[numJogador]['cerebros'] += 1
-        if valores[1] == "CEREBRO":
-            jogadores[numJogador]['cerebros'] += 1
-        if valores[2] == "CEREBRO":
-            jogadores[numJogador]['cerebros'] += 1
-
-
-        print(valores)
-        print(jogadores[numJogador]['cerebros'])
-    elif jogar == 2:
-        print("Seu turno finalizou, proximo jogador")
+        
 
 
 elif players < 2:
