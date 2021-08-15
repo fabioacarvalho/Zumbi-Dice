@@ -18,7 +18,6 @@ dadoVermelho = ["TIRO","PASSO","TIRO","CEREBRO","PASSO","TIRO"]
 StartJogo = False
 
 tubo = []
-copo = 13
 
 #Adicionar dados no copo
 for i in range(0,6):
