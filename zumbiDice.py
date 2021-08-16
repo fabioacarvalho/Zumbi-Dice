@@ -15,7 +15,7 @@ import random
 dadoVerde = ["CEREBRO","PASSO","CEREBRO","TIRO","PASSO","CEREBRO"]
 dadoAmarelo = ["TIRO","PASSO","CEREBRO","TIRO","PASSO","CEREBRO"]
 dadoVermelho = ["TIRO","PASSO","TIRO","CEREBRO","PASSO","TIRO"]
-StartJogo = False
+StartJogo = True
 
 tubo = []
 
@@ -43,41 +43,56 @@ players = int(input("Quantos jogadores vão jogar: "))
 jogadores = []
 
 if players >= 2:
-    #Início do jogo:
     StartJogo = True
+    #Adicionando jogadores:
+    i = 1
+    while (i < players + 1):
+        pessoas = dict({'jogador': i, 'cerebros': 0})
+        jogadores.append(pessoas)
+        i += 1
+    
+    print(jogadores)
 
-    while (StartJogo == True):
-        #Adicionando jogadores:
-        i = 1
-        while (i < players + 1):
-            pessoas = dict({'jogador': i, 'cerebros': 0})
-            jogadores.append(pessoas)
-            i += 1
-
-        #Escolhas:
+    while StartJogo == True:
+        #Escolhas 1:
         numJogador = int(input("Qual jogador vai jogar os dados? [1, 2...]: "))
-        jogar = int(input("[1] - Jogar dados ou [2] - Finalizar Turno? "))
-
-        if jogar == 1:
-            
-            valores = jogarDados
-            if valores[0:2] == "TIRO":
-                print('Você foi atingido por 3 tiros e perdeu o turno!')
-            if valores[0] == "CEREBRO":
-                jogadores[numJogador]['cerebros'] += 1
-            if valores[1] == "CEREBRO":
-                jogadores[numJogador]['cerebros'] += 1
-            if valores[2] == "CEREBRO":
-                jogadores[numJogador]['cerebros'] += 1
-
-            #Pontuação do Jogo:
-            
-            print(valores)
-            print(jogadores[numJogador]['cerebros'])
-
-        elif jogar == 2:
-            print("Seu turno finalizou, proximo jogador")
+        contiuar = int(input("Continuar [1]-SIM e [2]-NÃO: "))
+        if contiuar == 2:
             StartJogo = False
+
+        print(f'Jogador: {numJogador}')
+        #Início do jogo:
+        turno = False
+        if numJogador != 0:
+            turno = True
+
+        while (turno == True):
+
+            #Escolhas 2:
+            jogar = int(input("[1] - Jogar dados ou [2] - Finalizar Turno? "))
+            #jogarDados = jogarDados
+
+            if jogar == 1:
+                
+                if jogarDados[0:3] == "TIRO":
+                    print('Você foi atingido por 3 tiros e perdeu o turno!')
+                if jogarDados[0] == "CEREBRO":
+                    jogadores[numJogador - 1]['cerebros'] += 1
+                if jogarDados[1] == "CEREBRO":
+                    jogadores[numJogador - 1]['cerebros'] += 1
+                if jogarDados[2] == "CEREBRO":
+                    jogadores[numJogador - 1]['cerebros'] += 1
+
+                #Pontuação do Jogo:
+                
+                print(jogarDados)
+                print(jogadores[numJogador - 1]['cerebros'])
+
+                
+
+            elif jogar == 2:
+                print("Seu turno finalizou, proximo jogador")
+                turno = False
         
         
 
