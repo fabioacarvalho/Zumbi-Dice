@@ -20,23 +20,13 @@ StartJogo = True
 tubo = []
 
 #Adicionar dados no copo
-for i in range(0,6):
-    tubo.append(dadoVerde)
-for i in range(0, 4):
-    tubo.append((dadoAmarelo))
-for i in range(0, 3):
-    tubo.append(dadoVermelho)
-
-#Sortear dados:
-DadosUm = random.choice(random.choice(tubo))
-DadosDois = random.choice(random.choice(tubo))
-DadosTres = random.choice(random.choice(tubo))
-
-
-#Jogar 3 dados:
-jogarDados = [DadosUm, DadosDois, DadosTres]
-
-#print(jogarDados)
+def inserirDadosTubo():
+    for i in range(0,6):
+        tubo.append(dadoVerde)
+    for i in range(0, 4):
+        tubo.append((dadoAmarelo))
+    for i in range(0, 3):
+        tubo.append(dadoVermelho)
 
 #Quantos jogadores estão jogando:
 players = int(input("Quantos jogadores vão jogar: "))
@@ -53,25 +43,27 @@ if players >= 2:
     
     print(jogadores)
 
+    #Início do Jogo:
     while StartJogo == True:
         #Escolhas 1:
         numJogador = int(input("Qual jogador vai jogar os dados? [1, 2...]: "))
-        contiuar = int(input("Continuar [1]-SIM e [2]-NÃO: "))
-        if contiuar == 2:
-            StartJogo = False
-
+        
         print(f'Jogador: {numJogador}')
         #Início do jogo:
         turno = False
         if numJogador != 0:
             turno = True
 
+        #Jogar os dados:
+        dadosNoJogo = jogarDados
+                    
+
         while (turno == True):
 
             #Escolhas 2:
             jogar = int(input("[1] - Jogar dados ou [2] - Finalizar Turno? "))
-            #jogarDados = jogarDados
 
+            #Estrutura de pontos por jogador:
             if jogar == 1:
                 
                 if jogarDados[0:3] == "TIRO":
@@ -82,17 +74,19 @@ if players >= 2:
                     jogadores[numJogador - 1]['cerebros'] += 1
                 if jogarDados[2] == "CEREBRO":
                     jogadores[numJogador - 1]['cerebros'] += 1
-
-                #Pontuação do Jogo:
-                
+                    
+               
                 print(jogarDados)
                 print(jogadores[numJogador - 1]['cerebros'])
-
-                
 
             elif jogar == 2:
                 print("Seu turno finalizou, proximo jogador")
                 turno = False
+        
+        #Continuar ou sair do jogo:
+        contiuar = int(input("Continuar jogo [1]-SIM e [2]-NÃO: "))
+        if contiuar == 2:
+            StartJogo = False
         
         
 
