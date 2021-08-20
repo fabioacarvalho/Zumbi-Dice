@@ -1,21 +1,9 @@
-"""
-Assim, você deverá criar os dados neste momento utilizando um objeto do tipo string.
-Esta string deve conter seis caracteres para simular cada face do dado.
-Para identificar as faces dos dados segue abaixo especificação:
-
-#6 Dados verdes: “CPCTPC”
-#4 Dados amarelos: “TPCTPC”
-#3 Dados vermelhos: “TPTCPT”
-
-Onde, o caractere “C” na string corresponde ao cérebro, caractere “P” são os passos e por fim o “T” é o tiro.
-"""
-
 import random
 
 dadoVerde = "CEREBRO","PASSO","CEREBRO","TIRO","PASSO","CEREBRO"
 dadoAmarelo = "TIRO","PASSO","CEREBRO","TIRO","PASSO","CEREBRO"
 dadoVermelho = "TIRO","PASSO","TIRO","CEREBRO","PASSO","TIRO"
-StartJogo = True
+StartJogo = False
 
 tubo = []
 
