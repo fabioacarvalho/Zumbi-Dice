@@ -31,10 +31,11 @@ cont = 0
 if players >= 2:
     #Início do jogo:
     StartJogo = True
+    inserirDados()
     #Adicionando jogadores:
     i = 1
     while (i < players + 1):
-        pessoas = dict({'jogador': i, 'cerebros': 0})
+        pessoas = dict({'jogador': i, 'cerebros': 0, 'tiros': 0})
         jogadores.append(pessoas)
         i += 1
 
@@ -76,6 +77,12 @@ if players >= 2:
                                 StartJogo == False
                             else:
                                 jogadores[playerAtual]['cerebros'] += 1
+                        elif facesDados == "TIRO":
+                            if jogadores[playerAtual]['tiros'] == 3:
+                                print(f'Você levou 3 tiros e perdeu o turno.')
+                                turno = False
+                            else:
+                                jogadores[playerAtual]['tiros'] += 1
                         del tubo[i]
                         if len(tubo) == 0:
                             inserirDados()
@@ -87,7 +94,8 @@ if players >= 2:
                 print(dados)
 
                 #Pontuação do Jogo:
-                print(f'Jogador {numJogador}: ',jogadores[playerAtual]['cerebros'])
+                print(f'Jogador {numJogador} comeu: ',jogadores[playerAtual]['cerebros'], 'cerebros.')
+                print(f'Jogador {numJogador} levou: ',jogadores[playerAtual]['tiros'], 'tiros.')
 
             elif jogar == 2:
                 print("Seu turno finalizou, proximo jogador")
