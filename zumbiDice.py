@@ -81,6 +81,7 @@ if players >= 2:
                             if jogadores[playerAtual]['tiros'] == 3:
                                 print(f'Você levou 3 tiros e perdeu o turno.')
                                 turno = False
+                                jogadores[playerAtual]['tiros'] = 0
                             else:
                                 jogadores[playerAtual]['tiros'] += 1
                         del tubo[i]
