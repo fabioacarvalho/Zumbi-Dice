@@ -27,7 +27,6 @@ if StartJogo == True:
 
 cont = 0
 
-
 if players >= 2:
     #Início do jogo:
     StartJogo = True
