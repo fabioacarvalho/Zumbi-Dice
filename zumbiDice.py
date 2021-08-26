@@ -37,7 +37,6 @@ if players >= 2:
         pessoas = dict({'jogador': i, 'cerebros': 0, 'tiros': 0})
         jogadores.append(pessoas)
         i += 1
-
     
 
     while (StartJogo == True):
@@ -77,7 +76,7 @@ if players >= 2:
                             else:
                                 jogadores[playerAtual]['cerebros'] += 1
                         elif facesDados == "TIRO":
-                            if jogadores[playerAtual]['tiros'] == 3:
+                            if jogadores[playerAtual]['tiros'] >= 3:
                                 print(f'Você levou 3 tiros e perdeu o turno.')
                                 turno = False
                                 jogadores[playerAtual]['tiros'] = 0
