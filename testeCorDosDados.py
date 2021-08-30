@@ -45,7 +45,7 @@ print(len(mao))
 
 #PONTOS DO JOGO NOVO:
 
-try:
+                            try:
                                 if dadoFace == "CEREBRO":
                                     if jogadores[playerAtual]['cerebros'] == 13:
                                         print(f'PARABÉNS o jogador {numJogador} venceu!')
