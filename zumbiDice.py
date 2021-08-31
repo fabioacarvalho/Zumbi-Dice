@@ -60,7 +60,13 @@ if players >= 2:
         while (turno == True):
             #Jogar dados ou sair do turno:
             try:
-                jogar = int(input("[1] - Jogar dados ou [2] - Finalizar Turno? "))
+                if jogadores[playerAtual]['tiros'] == 3:
+                    turno = False
+                    print(f'Você levou 3 tiros e perdeu o turno.')
+                    jogadores[playerAtual]['tiros'] = 0
+                    break
+                else:
+                    jogar = int(input("[1] - Jogar dados ou [2] - Finalizar Turno? "))
             except:
                 print("Valor inválido!")
 
@@ -92,12 +98,14 @@ if players >= 2:
                             else:
                                 jogadores[playerAtual]['cerebros'] += 1
                         elif dadoFace == "TIRO":
-                            if jogadores[playerAtual]['tiros'] >= 3:
-                                print(f'Você levou 3 tiros e perdeu o turno.')
+                            if jogadores[playerAtual]['tiros'] == 3:
                                 turno = False
+                                print(f'Você levou 3 tiros e perdeu o turno.')
                                 jogadores[playerAtual]['tiros'] = 0
+                                break
                             else:
                                 jogadores[playerAtual]['tiros'] += 1
+                        
                         
                         del mao[i]
                         if len(tubo) == 0:
