@@ -41,7 +41,7 @@
       </property>
       <property name="styleSheet">
        <string notr="true">color: rgb(170, 0, 0);
-font: 36pt &quot;Showcard Gothic&quot;;</string>
+font: 66pt &quot;Showcard Gothic&quot;;</string>
       </property>
       <property name="text">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;ZUMBI DICE&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -57,11 +57,11 @@ font: 36pt &quot;Showcard Gothic&quot;;</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(170, 0, 0);
+       <string notr="true">color: rgb(255, 255, 255);
 font: 32pt &quot;Chiller&quot;;</string>
       </property>
       <property name="text">
-       <string>Jogar</string>
+       <string>Play</string>
       </property>
      </widget>
     </widget>
@@ -77,7 +77,7 @@ font: 32pt &quot;Chiller&quot;;</string>
       </property>
       <property name="styleSheet">
        <string notr="true">font: 24pt &quot;Chiller&quot;;
-color: rgb(170, 0, 0);</string>
+color: rgb(255, 255, 255);</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_3">
@@ -90,7 +90,7 @@ color: rgb(170, 0, 0);</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(170, 0, 0);
+       <string notr="true">color: rgb(85, 170, 255);
 font: 32pt &quot;Chiller&quot;;</string>
       </property>
       <property name="text">
@@ -141,7 +141,7 @@ font: 32pt &quot;Chiller&quot;;</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(170, 0, 0);
+       <string notr="true">color: rgb(255, 255, 255);
 font: 32pt &quot;Chiller&quot;;</string>
       </property>
       <property name="text">
@@ -177,7 +177,7 @@ font: 42pt &quot;Chiller&quot;;</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(170, 0, 0);
+       <string notr="true">color: rgb(85, 170, 255);
 font: 32pt &quot;Chiller&quot;;</string>
       </property>
      </widget>
@@ -193,7 +193,7 @@ font: 32pt &quot;Chiller&quot;;</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(170, 0, 0);
+       <string notr="true">color: rgb(85, 170, 255);
 font: 24pt &quot;Chiller&quot;;</string>
       </property>
       <property name="text">
@@ -210,7 +210,7 @@ font: 24pt &quot;Chiller&quot;;</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(170, 0, 0);
+       <string notr="true">color: rgb(85, 170, 255);
 font: 24pt &quot;Chiller&quot;;</string>
       </property>
       <property name="text">
@@ -237,7 +237,7 @@ font: 24pt &quot;Chiller&quot;;</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(170, 0, 0);
+       <string notr="true">color: rgb(255, 255, 255);
 font: 24pt &quot;Chiller&quot;;</string>
       </property>
       <property name="text">

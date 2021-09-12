@@ -26,11 +26,11 @@ class Ui_MainWindow(object):
         self.label = QtWidgets.QLabel(self.page_1)
         self.label.setGeometry(QtCore.QRect(50, 100, 531, 91))
         self.label.setStyleSheet("color: rgb(170, 0, 0);\n"
-"font: 36pt \"Showcard Gothic\";")
+"font: 66pt \"Showcard Gothic\";")
         self.label.setObjectName("label")
         self.btnJogar = QtWidgets.QPushButton(self.page_1)
         self.btnJogar.setGeometry(QtCore.QRect(250, 230, 121, 51))
-        self.btnJogar.setStyleSheet("color: rgb(170, 0, 0);\n"
+        self.btnJogar.setStyleSheet("color: rgb(255, 255, 255);\n"
 "font: 32pt \"Chiller\";")
         self.btnJogar.setObjectName("btnJogar")
         self.stackedWidget.addWidget(self.page_1)
@@ -39,11 +39,11 @@ class Ui_MainWindow(object):
         self.numJogadores = QtWidgets.QSpinBox(self.page_2)
         self.numJogadores.setGeometry(QtCore.QRect(260, 220, 131, 51))
         self.numJogadores.setStyleSheet("font: 24pt \"Chiller\";\n"
-"color: rgb(170, 0, 0);")
+"color: rgb(255, 255, 255);")
         self.numJogadores.setObjectName("numJogadores")
         self.label_3 = QtWidgets.QLabel(self.page_2)
         self.label_3.setGeometry(QtCore.QRect(70, 150, 531, 51))
-        self.label_3.setStyleSheet("color: rgb(170, 0, 0);\n"
+        self.label_3.setStyleSheet("color: rgb(85, 170, 255);\n"
 "font: 32pt \"Chiller\";")
         self.label_3.setObjectName("label_3")
         self.label_4 = QtWidgets.QLabel(self.page_2)
@@ -59,7 +59,7 @@ class Ui_MainWindow(object):
         self.infoInicio.setObjectName("infoInicio")
         self.btnIniciar = QtWidgets.QPushButton(self.page_2)
         self.btnIniciar.setGeometry(QtCore.QRect(260, 290, 131, 51))
-        self.btnIniciar.setStyleSheet("color: rgb(170, 0, 0);\n"
+        self.btnIniciar.setStyleSheet("color: rgb(255, 255, 255);\n"
 "font: 32pt \"Chiller\";")
         self.btnIniciar.setObjectName("btnIniciar")
         self.stackedWidget.addWidget(self.page_2)
@@ -72,7 +72,7 @@ class Ui_MainWindow(object):
         self.label_6.setObjectName("label_6")
         self.listaJogadores = QtWidgets.QListWidget(self.page_3)
         self.listaJogadores.setGeometry(QtCore.QRect(0, 90, 631, 341))
-        self.listaJogadores.setStyleSheet("color: rgb(170, 0, 0);\n"
+        self.listaJogadores.setStyleSheet("color: rgb(85, 170, 255);\n"
 "font: 32pt \"Chiller\";")
         self.listaJogadores.setObjectName("listaJogadores")
         self.stackedWidget.addWidget(self.page_3)
@@ -80,12 +80,12 @@ class Ui_MainWindow(object):
         self.page_4.setObjectName("page_4")
         self.btnJogarDados = QtWidgets.QPushButton(self.page_4)
         self.btnJogarDados.setGeometry(QtCore.QRect(20, 320, 181, 41))
-        self.btnJogarDados.setStyleSheet("color: rgb(170, 0, 0);\n"
+        self.btnJogarDados.setStyleSheet("color: rgb(85, 170, 255);\n"
 "font: 24pt \"Chiller\";")
         self.btnJogarDados.setObjectName("btnJogarDados")
         self.btnFinalizerTurno = QtWidgets.QPushButton(self.page_4)
         self.btnFinalizerTurno.setGeometry(QtCore.QRect(220, 320, 181, 41))
-        self.btnFinalizerTurno.setStyleSheet("color: rgb(170, 0, 0);\n"
+        self.btnFinalizerTurno.setStyleSheet("color: rgb(85, 170, 255);\n"
 "font: 24pt \"Chiller\";")
         self.btnFinalizerTurno.setObjectName("btnFinalizerTurno")
         self.infoJogadorAtual = QtWidgets.QListView(self.page_4)
@@ -93,7 +93,7 @@ class Ui_MainWindow(object):
         self.infoJogadorAtual.setObjectName("infoJogadorAtual")
         self.btnSair = QtWidgets.QPushButton(self.page_4)
         self.btnSair.setGeometry(QtCore.QRect(420, 320, 181, 41))
-        self.btnSair.setStyleSheet("color: rgb(170, 0, 0);\n"
+        self.btnSair.setStyleSheet("color: rgb(255, 255, 255);\n"
 "font: 24pt \"Chiller\";")
         self.btnSair.setObjectName("btnSair")
         self.listaDados = QtWidgets.QLabel(self.page_4)
@@ -113,7 +113,7 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "ZumbiDice"))
         self.label.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">ZUMBI DICE</p></body></html>"))
-        self.btnJogar.setText(_translate("MainWindow", "Jogar"))
+        self.btnJogar.setText(_translate("MainWindow", "Play"))
         self.label_3.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">Quantos jogadores vão jogar?</p></body></html>"))
         self.label_4.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">ZUMBI DICE</p></body></html>"))
         self.btnIniciar.setText(_translate("MainWindow", "Iniciar"))
