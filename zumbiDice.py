@@ -65,6 +65,11 @@ if players >= 2:
                     print(f'Você levou 3 tiros e perdeu o turno.')
                     jogadores[playerAtual]['tiros'] = 0
                     break
+                elif jogadores[playerAtual]['cerebros'] >= 13:
+                    print(f'PARABÉNS o jogador {numJogador} venceu!')
+                    turno = False
+                    StartJogo == False
+                    break
                 else:
                     jogar = int(input("[1] - Jogar dados ou [2] - Finalizar Turno? "))
             except:
@@ -105,8 +110,7 @@ if players >= 2:
                                     break
                                 else:
                                     jogadores[playerAtual]['tiros'] += 1
-                            
-                            
+    
                             del mao[i]
                             if len(tubo) == 0:
                                 inserirDados()
@@ -129,7 +133,10 @@ if players >= 2:
                 print("Valor invalido!!")
 
         try:
-            continuar = int(input('continuar o jogo [1] - SIM e [2] - NÃO: '))
+            if jogadores[playerAtual]['cerebros'] < 13:
+                continuar = int(input('continuar o jogo [1] - SIM e [2] - NÃO: '))
+            elif jogadores[playerAtual]['cerebros'] >= 13:
+                break
             if continuar == 2:
                 StartJogo = False
         except:
