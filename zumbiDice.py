@@ -91,10 +91,11 @@ if players >= 2:
                             print(f"Dado Amarelo: {dadoFace}")
                         try:
                             if dadoFace == "CEREBRO":
-                                if jogadores[playerAtual]['cerebros'] == 13:
+                                if jogadores[playerAtual]['cerebros'] >= 13:
                                     print(f'PARABÉNS o jogador {numJogador} venceu!')
                                     turno = False
                                     StartJogo == False
+                                    break
                                 else:
                                     jogadores[playerAtual]['cerebros'] += 1
                             elif dadoFace == "TIRO":
@@ -102,6 +103,11 @@ if players >= 2:
                                     turno = False
                                     print(f'Você levou 3 tiros e perdeu o turno.')
                                     jogadores[playerAtual]['tiros'] = 0
+                                    break
+                                elif jogadores[playerAtual]['tiros'] >= 13:
+                                    print(f'PARABÉNS o jogador {numJogador} venceu!')
+                                    turno = False
+                                    StartJogo == False
                                     break
                                 else:
                                     jogadores[playerAtual]['tiros'] += 1
