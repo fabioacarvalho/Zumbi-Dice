@@ -1,6 +1,5 @@
 import random
 
-
 dadoVerde = ["CEREBRO","PASSO","CEREBRO","TIRO","PASSO","CEREBRO"]
 dadoAmarelo = ["TIRO","PASSO","CEREBRO","TIRO","PASSO","CEREBRO"]
 dadoVermelho = ["TIRO","PASSO","TIRO","CEREBRO","PASSO","TIRO"]
