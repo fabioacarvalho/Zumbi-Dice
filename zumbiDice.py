@@ -1,5 +1,6 @@
 import random
 
+
 dadoVerde = ["CEREBRO","PASSO","CEREBRO","TIRO","PASSO","CEREBRO"]
 dadoAmarelo = ["TIRO","PASSO","CEREBRO","TIRO","PASSO","CEREBRO"]
 dadoVermelho = ["TIRO","PASSO","TIRO","CEREBRO","PASSO","TIRO"]
@@ -19,13 +20,20 @@ def inserirDados():
 #Rodada do jogo:
 mao = []
 
-def sorteio():
+def lancarDados():
     for i in range(0, 3):
         mao.append(random.choice(tubo))
+
+
+
 
 #Quantos jogadores estão jogando:
 players = int(input("Quantos jogadores vão jogar: "))
 jogadores = []
+
+def listarJogadores():
+    for i in jogadores:
+        print(f"Jogador nº {i['jogador']} - Pontuação: {i['cerebros']}")
 
 #Variavel de controle de inicio:
 if StartJogo == True:
@@ -37,6 +45,8 @@ if players >= 2:
     #Início do jogo:
     StartJogo = True
     inserirDados()
+
+
     #Adicionando jogadores:
     i = 1
     while (i < players + 1):
@@ -48,16 +58,49 @@ if players >= 2:
 
         #Escolhas:
         try:
-            numJogador = int(input("Qual jogador vai jogar os dados? [1, 2...]: "))
+            print('')
+            print(f"Qual dos jogadores abaixo vai jogar os dados? ")
+            listarJogadores()
+            print('')
+            numJogador = int(input("Digite o número do jogador: "))
+            print('')
             playerAtual = numJogador - 1
         except:
             print("Valor inválido!")
+            break
 
         turno = False
         if numJogador != 0:
             turno = True
         
         while (turno == True):
+
+            #MENU
+            def menu():
+                print('')
+                print('---------------------- MENU ----------------------')
+                print('')
+                print(f'Jogador nº {playerAtual + 1} com os dados, o que deseja fazer?')
+                print('')
+                print('1 - Jogar Dados:')
+                print('2 - Finalizar Turno:')
+                print('3 - Listar Pontução:')
+                print('')
+                valor = int(input('Escolha uma opção: '))
+                
+                if valor == 1:
+                    jogar = 1
+                    return jogar
+                elif valor == 2:
+                    jogar = 2
+                    return jogar
+                elif valor == 3:
+                    listarJogadores()
+                    menu()
+                else:
+                    print('Valor inválido!')
+
+            dadosTurno = []
             #Jogar dados ou sair do turno:
             try:
                 if jogadores[playerAtual]['tiros'] == 3:
@@ -71,7 +114,8 @@ if players >= 2:
                     StartJogo == False
                     break
                 else:
-                    jogar = int(input("[1] - Jogar dados ou [2] - Finalizar Turno? "))
+                    #jogar = int(input("[1] - Jogar dados ou [2] - Finalizar Turno? "))
+                    jogar = menu()
             except:
                 print("Valor inválido!")
             try:
@@ -79,7 +123,7 @@ if players >= 2:
                     #Jogando os dados:    
                     dados = []
                     
-                    sorteio()
+                    lancarDados()
 
                     #Adicionando Pontos nova etapa:
                     #Cores e faces dos dados:
@@ -88,12 +132,15 @@ if players >= 2:
                         if "dadoVermelho" in mao[i]:
                             dadoFace = random.choice(mao[i]["dadoVermelho"])
                             print(f"Dado Vermelho: {dadoFace}")  
+                            print('')
                         if "dadoVerde" in mao[i]:
                             dadoFace = random.choice(mao[i]["dadoVerde"])
                             print(f"Dado Verde: {dadoFace}")
+                            print('')
                         if "dadoAmarelo" in mao[i]:
                             dadoFace = random.choice(mao[i]["dadoAmarelo"])
                             print(f"Dado Amarelo: {dadoFace}")
+                            print('')
                         try:
                             if dadoFace == "CEREBRO":
                                 if jogadores[playerAtual]['cerebros'] == 13:
@@ -110,6 +157,9 @@ if players >= 2:
                                     break
                                 else:
                                     jogadores[playerAtual]['tiros'] += 1
+                            elif dadoFace == "PASSO":
+                                print('')
+                                print('Deseja ir atrás dos que fugiram?')
     
                             del mao[i]
                             if len(tubo) == 0:
@@ -117,7 +167,7 @@ if players >= 2:
                             elif StartJogo == False:
                                 inserirDados()
                             elif len(mao) < 3:
-                                sorteio()
+                                lancarDados()
                         except:
                             print("Preenchendo o tubo")   
 
@@ -126,7 +176,8 @@ if players >= 2:
                     print(f'Jogador {numJogador} levou: ',jogadores[playerAtual]['tiros'], 'tiros.')
 
                 elif jogar == 2:
-                    print("Seu turno finalizou, proximo jogador")
+                    print('')
+                    print(f"Seu turno finalizou jogador {playerAtual + 1}, proximo jogador")
                     turno = False
                     jogadores[playerAtual]['tiros'] = 0
             except:
@@ -134,6 +185,7 @@ if players >= 2:
 
         try:
             if jogadores[playerAtual]['cerebros'] < 13:
+                print('')
                 continuar = int(input('continuar o jogo [1] - SIM e [2] - NÃO: '))
             elif jogadores[playerAtual]['cerebros'] >= 13:
                 break
