@@ -7,6 +7,7 @@ dadoVermelho = ["TIRO","PASSO","TIRO","CEREBRO","PASSO","TIRO"]
 StartJogo = False
 
 tubo = []
+cerebrosTurno = [{"cerebros": 0}]
 
 #Adicionar dados no copo
 def inserirDados():
@@ -95,18 +96,27 @@ if players >= 2:
                     jogar = 2
                     return jogar
                 elif valor == 3:
+                    print('')
+                    print('-------------- LISTA DE PONTUAÇÃO --------------')
+                    print('')
                     listarJogadores()
                     menu()
                 else:
                     print('Valor inválido!')
 
-            dadosTurno = []
+            
+
             #Jogar dados ou sair do turno:
             try:
                 if jogadores[playerAtual]['tiros'] == 3:
                     turno = False
-                    print(f'Você levou 3 tiros e perdeu o turno.')
+                    print(f'Você levou 3 tiros e perdeu o turno (PRIMEIRO TRY).')
+                    print('')
+                    print(cerebrosTurno)
+                    print('')
                     jogadores[playerAtual]['tiros'] = 0
+                    jogadores[playerAtual]['cerebros'] -= cerebrosTurno[0]['cerebros']
+                    cerebrosTurno[0]['cerebros'] = 0
                     break
                 elif jogadores[playerAtual]['cerebros'] >= 13:
                     print(f'PARABÉNS o jogador {numJogador} venceu!')
@@ -122,6 +132,7 @@ if players >= 2:
                 if jogar == 1:
                     #Jogando os dados:    
                     dados = []
+                    
                     
                     lancarDados()
 
@@ -149,11 +160,21 @@ if players >= 2:
                                     StartJogo == False
                                 else:
                                     jogadores[playerAtual]['cerebros'] += 1
+                                    cerebrosTurno[0]['cerebros'] += 1
+                                    
                             elif dadoFace == "TIRO":
                                 if jogadores[playerAtual]['tiros'] == 3:
                                     turno = False
-                                    print(f'Você levou 3 tiros e perdeu o turno.')
+                                    
+                                    print(f'Você levou 3 tiros e perdeu o turno. (SEGUNDO TRY)')
+                                    print('')
+                                    print(cerebrosTurno)
+                                    print('')
                                     jogadores[playerAtual]['tiros'] = 0
+                                    jogadores[playerAtual]['cerebros'] -= cerebrosTurno[0]['cerebros']
+                                    
+                                    cerebrosTurno[0]['cerebros'] = 0
+                                    
                                     break
                                 else:
                                     jogadores[playerAtual]['tiros'] += 1
