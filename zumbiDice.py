@@ -1,3 +1,8 @@
+''' 
+    NOME: FÁBIO ALEX DE CARVALHO
+    CURSO: ANÁLISE E DESENVOLVIMENTO DE SISTEMAS
+ '''
+
 import random
 
 dadoVerde = ["CEREBRO","PASSO","CEREBRO","TIRO","PASSO","CEREBRO"]
@@ -85,14 +90,15 @@ if players >= 2:
                     menu()
                 else:
                     print('Valor inválido!')
+            
+
+            ''' VERIFICAR POSSIBILIDADE DE TIRAR ESSE TRECHO ABAIXO DE TRY EXCEPT '''
+
             #Jogar dados ou sair do turno:
             try:
                 if jogadores[playerAtual]['tiros'] == 3:
                     turno = False
-                    print(f'Você levou 3 tiros e perdeu o turno (PRIMEIRO TRY).')
-                    print('')
-                    print(cerebrosTurno)
-                    print('')
+                    print(f'Você levou 3 tiros e perdeu o turno.')
                     jogadores[playerAtual]['tiros'] = 0
                     jogadores[playerAtual]['cerebros'] -= cerebrosTurno[0]['cerebros']
                     cerebrosTurno[0]['cerebros'] = 0
@@ -103,10 +109,13 @@ if players >= 2:
                     StartJogo == False
                     break
                 else:
-                    #jogar = int(input("[1] - Jogar dados ou [2] - Finalizar Turno? "))
                     jogar = menu()
             except:
                 print("Valor inválido!")
+
+
+
+
             try:
                 if jogar == 1:
                     #Jogando os dados:    
@@ -139,7 +148,7 @@ if players >= 2:
                             elif dadoFace == "TIRO":
                                 if jogadores[playerAtual]['tiros'] == 3:
                                     turno = False
-                                    print(f'Você levou 3 tiros e perdeu o turno. (SEGUNDO TRY)')
+                                    print(f'Você levou 3 tiros e perdeu o turno.')
                                     print('')
                                     print(cerebrosTurno)
                                     print('')
