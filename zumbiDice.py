@@ -90,10 +90,6 @@ if players >= 2:
                     menu()
                 else:
                     print('Valor inválido!')
-            
-
-            ''' VERIFICAR POSSIBILIDADE DE TIRAR ESSE TRECHO ABAIXO DE TRY EXCEPT '''
-
             #Jogar dados ou sair do turno:
             try:
                 if jogadores[playerAtual]['tiros'] == 3:
@@ -112,10 +108,6 @@ if players >= 2:
                     jogar = menu()
             except:
                 print("Valor inválido!")
-
-
-
-
             try:
                 if jogar == 1:
                     #Jogando os dados:    
