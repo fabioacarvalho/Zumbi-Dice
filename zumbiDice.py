@@ -11,6 +11,7 @@ dadoVermelho = ["TIRO","PASSO","TIRO","CEREBRO","PASSO","TIRO"]
 StartJogo = False
 tubo = []
 cerebrosTurno = [{"cerebros": 0}]
+
 #Adicionar dados no copo
 def inserirDados():
     for i in range(0, 6):
@@ -19,11 +20,13 @@ def inserirDados():
         tubo.append({"dadoAmarelo": dadoAmarelo})
     for i in range(0, 3):
         tubo.append({"dadoVermelho": dadoVermelho})
+
 #Rodada do jogo:
 mao = []
 def lancarDados():
     for i in range(0, 3):
         mao.append(random.choice(tubo))
+
 #Iniciando o Jogo e perguntando quantos jogadores estão jogando:
 print('')
 print('---------SEJAM BEM VINDOS AO ZUMBI DICE ---------')
@@ -33,6 +36,7 @@ jogadores = []
 def listarJogadores():
     for i in jogadores:
         print(f"Jogador nº {i['jogador']} - Pontuação: {i['cerebros']}")
+
 #Variavel de controle de inicio:
 if StartJogo == True:
     inserirDados()
@@ -90,6 +94,7 @@ if players >= 2:
                     menu()
                 else:
                     print('Valor inválido!')
+
             #Jogar dados ou sair do turno:
             try:
                 if jogadores[playerAtual]['tiros'] == 3:
@@ -161,7 +166,8 @@ if players >= 2:
                             elif len(mao) < 3:
                                 lancarDados()
                         except:
-                            print("Preenchendo o tubo")   
+                            print("Preenchendo o tubo")
+
                     #Pontuação do Jogo:
                     print(f'Jogador {numJogador} comeu: ',jogadores[playerAtual]['cerebros'], 'cerebros.')
                     print(f'Jogador {numJogador} levou: ',jogadores[playerAtual]['tiros'], 'tiros.')
@@ -172,6 +178,7 @@ if players >= 2:
                     jogadores[playerAtual]['tiros'] = 0
             except:
                 print("Valor invalido!!")
+
         try:
             if jogadores[playerAtual]['cerebros'] < 13:
                 print('')
@@ -182,5 +189,6 @@ if players >= 2:
                 StartJogo = False
         except:
             print("Valor inválido!")
+            
 elif players < 2:
     print("jogadores insuficiente, chame mais amigos para jogar...")
